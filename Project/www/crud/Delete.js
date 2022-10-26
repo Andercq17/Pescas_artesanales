@@ -1,0 +1,64 @@
+var select;
+var tablav;
+function seccion(){
+    const secciones=document.getElementById('secciones');
+    const filtro=document.getElementById('filtro');
+    select=secciones.options[secciones.selectedIndex].value
+    tablav=filtro.options[filtro.selectedIndex].value;
+}
+
+function call(){
+    obtenerTabla();
+    const filtro=document.getElementById('filtro');
+    var seleccion = filtro.options[filtro.selectedIndex].value;
+    eel.obtenerTabla(seleccion)(insertarCampos)
+}
+function insertarCampos(valores_tabla){
+    const filtro=document.getElementById('filtro');
+    const campos=document.getElementById('datos');
+    var seleccion = filtro.options[filtro.selectedIndex].value;
+    if(seleccion=="Cuenca"){
+        campos.innerHTML=""
+        campos.innerHTML+=`Elige cual quieres eliminar: `;
+        campos.innerHTML+=` <select id="secciones" onchange="seccion()">`
+        const secciones=document.getElementById('secciones');
+        secciones.innerHTML+=`<option disabled selected value> -- selecciona una opción -- </option>`
+        for(var i=0; i<valores_tabla.length;i++){
+            var cuenca=valores_tabla[i][0] + " ~ "+ valores_tabla[i][1];
+            secciones.innerHTML+=`<option value="${valores_tabla[i][1]}">${cuenca}</option>`;
+        }
+        campos.innerHTML+=`<button onclick="eliminarDatos()">Eliminar cuenca</button><br>`;
+    }else if(seleccion=="MetodoPesca"){
+        campos.innerHTML=""
+        campos.innerHTML+=`Elige cual quieres eliminar: `;
+        campos.innerHTML+=` <select id="secciones" onchange="seccion()">`
+        const secciones=document.getElementById('secciones');
+        secciones.innerHTML+=`<option disabled selected value> -- selecciona una opción -- </option>`
+        for(var i=0; i<valores_tabla.length;i++){
+            var metodop=valores_tabla[i][0] + " ~ "+ valores_tabla[i][1];
+            secciones.innerHTML+=`<option value="${valores_tabla[i][1]}">${metodop}</option>`;
+        }
+        campos.innerHTML+=`<button onclick="eliminarDatos()">Eliminar Metodo de pesca</button><br>`;
+    }else{
+        campos.innerHTML=""
+        campos.innerHTML+=`Elige cual quieres eliminar: `;
+        campos.innerHTML+=` <select id="secciones" onchange="seccion()">`
+        const secciones=document.getElementById('secciones');
+        secciones.innerHTML+=`<option disabled selected value> -- selecciona una opción -- </option>`
+        for(var i=0; i<valores_tabla.length;i++){
+            secciones.innerHTML+=`<option value="${valores_tabla[i][0]}">${valores_tabla[i][0]}</option>`;
+        }
+        campos.innerHTML+=`<button onclick="eliminarDatos()">Eliminar pesca</button><br>`;
+    }
+}
+function eliminarDatos(){
+    if(tablav=="Cuenca"){
+        eel.eliminarCuenca(select)
+    }else if(tablav=="MetodoPesca"){
+        eel.eliminarMetodo(select)
+    }else{
+        eel.eliminarPesca(select)
+    }
+    call();
+}
+
