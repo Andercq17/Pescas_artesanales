@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../eel.js"></script>
+    <script src="../../crud/Delete.js"></script>
+    <script src="../../js/obtenerTablas.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h3>Tabla a modificar</h3>
+    <select id="filtro" onchange="call()">
+        <option disabled selected value> -- selecciona una opción -- </option>
+        <option value="Cuenca">Cuenca</option>
+        <option value="MetodoPesca">MetodoPesca</option>
+        <option value="Pesca">Pesca</option>
+    </select>
+    <div id="datos">
+    </div>
+    <div class="contenedor">
+      <table id="tabla">
+      </table>
+    </div>
+</body>
+</html>
