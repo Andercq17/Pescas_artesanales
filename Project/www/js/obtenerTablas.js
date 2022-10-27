@@ -8,10 +8,13 @@ function tabla(valores_tabla){
   var seleccion = filtro.options[filtro.selectedIndex].value;
   if(seleccion=="Cuenca"){
     contenedor.innerHTML=""
-    contenedor.innerHTML+=`<tr>
+    contenedor.innerHTML+=`
+    <thead>
+    <tr>
       <th>Id</th>
       <th>Cuenca</th>
-    </tr>`;
+    </tr>
+    </thead>`;
     for(var i=0;i<valores_tabla.length;i++){
       contenedor.innerHTML+=`<tr>
       <td>${valores_tabla[i][0]}</td>
@@ -21,10 +24,13 @@ function tabla(valores_tabla){
 
   }else if(seleccion=="MetodoPesca"){
     contenedor.innerHTML=""
-    contenedor.innerHTML+=`<tr>
+    contenedor.innerHTML+=`
+    <thead>
+    <tr>
       <th>Id</th>
       <th>TipoMetodo</th>
-    </tr>`;
+    </tr>
+    </thead>`;
     for(var i=0;i<valores_tabla.length;i++){
       contenedor.innerHTML+=`<tr>
       <td>${valores_tabla[i][0]}</td>
@@ -34,15 +40,19 @@ function tabla(valores_tabla){
     
   }else{
     contenedor.innerHTML=""
-    contenedor.innerHTML+=`<tr>
+    contenedor.innerHTML+=`
+    <thead>
+    <tr>
       <th>Consecutivo</th>
       <th>Cuenca</th>
       <th>MetodoPesca</th>
       <th>FechaActividad</th>
       <th>PesoPescado</th>
-    </tr>`;
+    </tr>
+    </thead>`;
     for(var i=0;i<valores_tabla.length;i++){
-      contenedor.innerHTML+=`<tr>
+      contenedor.innerHTML+=`
+      <tr>
       <td>${valores_tabla[i][0]}</td>
       <td>${valores_tabla[i][1]}</td>
       <td>${valores_tabla[i][2]}</td>

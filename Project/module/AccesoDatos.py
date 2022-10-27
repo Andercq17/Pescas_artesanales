@@ -10,7 +10,7 @@ class accesoDato:
         return (cur, con)
     
     
-    
+    #READ
     def obtenerCuenca(self):
         (cur,con)= self.__realizarConexion() #cursor
         res=cur.execute("select * from cuenca").fetchall()
@@ -41,7 +41,7 @@ class accesoDato:
         return lista
     
     
-    
+    #CREATE
     def crearPesca(self,valores):
         (cur,con)= self.__realizarConexion()
         cuencas=self.obtenerCuenca()
@@ -85,7 +85,7 @@ class accesoDato:
         
         
         
-        
+    #DELETE
     def eliminarCuenca(self,cuenca):
         (cur,con)= self.__realizarConexion()
         pescas=self.obtenerPesca()
@@ -119,7 +119,7 @@ class accesoDato:
         
     
     
-    
+    #UPDATE
     def actualizarCuenca(self, cuenca):
         (cur,con)= self.__realizarConexion()
         pescas=self.obtenerPescaOriginal()

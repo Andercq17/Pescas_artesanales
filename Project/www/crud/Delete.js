@@ -20,36 +20,36 @@ function insertarCampos(valores_tabla){
     var seleccion = filtro.options[filtro.selectedIndex].value;
     if(seleccion=="Cuenca"){
         campos.innerHTML=""
-        campos.innerHTML+=`Elige cual quieres eliminar: `;
-        campos.innerHTML+=` <select id="secciones" onchange="seccion()">`
+        campos.innerHTML+=`<p>Elige cual quieres eliminar: </p>
+        <select id="secciones" onchange="seccion()">`;
         const secciones=document.getElementById('secciones');
         secciones.innerHTML+=`<option disabled selected value> -- selecciona una opción -- </option>`
         for(var i=0; i<valores_tabla.length;i++){
             var cuenca=valores_tabla[i][0] + " ~ "+ valores_tabla[i][1];
             secciones.innerHTML+=`<option value="${valores_tabla[i][1]}">${cuenca}</option>`;
         }
-        campos.innerHTML+=`<button onclick="eliminarDatos()">Eliminar cuenca</button><br>`;
+        campos.innerHTML+=`<br><button onclick="eliminarDatos()" class="ov-btn-grow-skew">Eliminar cuenca</button><br>`;
     }else if(seleccion=="MetodoPesca"){
         campos.innerHTML=""
-        campos.innerHTML+=`Elige cual quieres eliminar: `;
-        campos.innerHTML+=` <select id="secciones" onchange="seccion()">`
+        campos.innerHTML+=`<p>Elige cual quieres eliminar: </p>
+        <select id="secciones" onchange="seccion()">`;
         const secciones=document.getElementById('secciones');
         secciones.innerHTML+=`<option disabled selected value> -- selecciona una opción -- </option>`
         for(var i=0; i<valores_tabla.length;i++){
             var metodop=valores_tabla[i][0] + " ~ "+ valores_tabla[i][1];
             secciones.innerHTML+=`<option value="${valores_tabla[i][1]}">${metodop}</option>`;
         }
-        campos.innerHTML+=`<button onclick="eliminarDatos()">Eliminar Metodo de pesca</button><br>`;
+        campos.innerHTML+=`<button onclick="eliminarDatos()" class="ov-btn-grow-skew">Eliminar Metodo de pesca</button><br>`;
     }else{
         campos.innerHTML=""
-        campos.innerHTML+=`Elige cual quieres eliminar: `;
-        campos.innerHTML+=` <select id="secciones" onchange="seccion()">`
+        campos.innerHTML+=`<p>Elige cual quieres eliminar:</p> 
+        <select id="secciones" onchange="seccion()">`;
         const secciones=document.getElementById('secciones');
         secciones.innerHTML+=`<option disabled selected value> -- selecciona una opción -- </option>`
         for(var i=0; i<valores_tabla.length;i++){
             secciones.innerHTML+=`<option value="${valores_tabla[i][0]}">${valores_tabla[i][0]}</option>`;
         }
-        campos.innerHTML+=`<button onclick="eliminarDatos()">Eliminar pesca</button><br>`;
+        campos.innerHTML+=`<br><button onclick="eliminarDatos()" class="ov-btn-grow-skew">Eliminar pesca</button><br>`;
     }
 }
 function eliminarDatos(){

@@ -16,6 +16,8 @@ def obtenerTabla(tabla):
     else:
         pesca=data.obtenerPesca()
         return pesca
+    
+    
 #CREATE
 @eel.expose
 def enviarPesca(valores):
@@ -55,5 +57,5 @@ def actualizarMetodo(metodo):
 @eel.expose
 def actualizarPesca(pesca):
     data.actualizarPesca(pesca)
-eel.start("views/index.html", size=(700,500))
+eel.start("views/crud/Crear.html", size=(2000,800) , position= (300, 200))
 
