@@ -6,18 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../../eel.js"></script>
     <script src="../../js/obtenerTablas.js"></script>
-    <title>Reportes</title>
+    <link rel="stylesheet" href="../../css/barra.css">
+    <link rel="stylesheet" href="../../css/estilos.css">
+    <title>Leer</title>
 </head>
 <body>
-    <h3>Tabla a leer</h3>
-    <select id="filtro" onchange="obtenerTabla()">
-        <option value="Cuenca">Cuenca</option>
-        <option value="MetodoPesca" selected>MetodoPesca</option>
-        <option value="Pesca">Pesca</option>
-    </select>
-    <div class="contenedor">
-      <table id="tabla">
-      </table>
+    <nav>
+        <ul>
+            <li><a href="../crud/Crear.html">Crear</a></li>
+            <li><a href="../crud/reportes.html">Leer</a></li>
+            <li><a href="../crud/Actualizar.html">Actualizar</a></li>
+            <li><a href="../crud/Eliminar.html">Eliminar</a></li>
+        </ul>
+    </nav>
+    <div class="global">
+        <div class="form">
+            <h1>Tabla a leer</h1>
+            <div class="centrado">
+                <div class="centrar">
+                    <select class="filtro" id="filtro" onchange="obtenerTabla()">
+                        <option disabled selected value> -- selecciona una opción -- </option>
+                        <option value="Cuenca">Cuenca</option>
+                        <option value="MetodoPesca">MetodoPesca</option>
+                        <option value="Pesca">Pesca</option>
+                    </select><br>
+                </div>
+            </div>
+            <div class="centrado">
+                <div id="datos"></div>
+            </div>
+        </div>
+        <div class="tablas">   
+            <div class="contenedor">
+                <table id="tabla">
+                </table>
+            </div>
+        </div>
     </div>
     
 </body>
