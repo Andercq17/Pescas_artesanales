@@ -9,10 +9,19 @@
     <title>Reportes</title>
 </head>
 <body>
+    <div class="dropdown">
+        <div class="dropdown-content">
+        <a href="Crear.html">Crear</a>
+        <a href="Actualizar.html">Actualizar</a>
+        <a href="Eliminar.html">Eliminar</a>
+        <a href="reportes.html">Leer</a>
+        </div>
+      </div>
     <h3>Tabla a leer</h3>
     <select id="filtro" onchange="obtenerTabla()">
+        <option disabled selected value> -- selecciona una opción -- </option>
         <option value="Cuenca">Cuenca</option>
-        <option value="MetodoPesca" selected>MetodoPesca</option>
+        <option value="MetodoPesca">MetodoPesca</option>
         <option value="Pesca">Pesca</option>
     </select>
     <div class="contenedor">

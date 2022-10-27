@@ -8,6 +8,7 @@ function seccion(){
 }
 
 function call(){
+    select=""
     obtenerTabla();
     const filtro=document.getElementById('filtro');
     var seleccion = filtro.options[filtro.selectedIndex].value;
@@ -52,13 +53,23 @@ function insertarCampos(valores_tabla){
     }
 }
 function eliminarDatos(){
-    if(tablav=="Cuenca"){
-        eel.eliminarCuenca(select)
-    }else if(tablav=="MetodoPesca"){
-        eel.eliminarMetodo(select)
+    if(select==null || select == "" ){
+        alert("hay valores en blanco")
     }else{
-        eel.eliminarPesca(select)
+        if(tablav=="Cuenca"){
+            eel.eliminarCuenca(select)(validacion)
+        }else if(tablav=="MetodoPesca"){
+            eel.eliminarMetodo(select)(validacion)
+        }else if(tablav=="Pesca"){
+            eel.eliminarPesca(select)
+        }
     }
     call();
 }
-
+function validacion(existe){
+    if(existe=="False"){
+        alert("Borrado correctamente")
+    }else{
+        alert("El dato a borrar está siendo usado en la tabla pesca")
+    }
+}

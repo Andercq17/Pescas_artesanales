@@ -4,56 +4,56 @@ import os
 import module.AccesoDatos as ad
 eel.init("www")
 data=ad.accesoDato()
+#READ
 @eel.expose    
 def obtenerTabla(tabla):
     if tabla=="Cuenca":
         cuencas=data.obtenerCuenca()
-        lista=[]
-        for row in cuencas:
-            lista.append(row)
-        return lista
+        return cuencas
     elif tabla=="MetodoPesca":
         metodos=data.obtenerMetodo()
-        lista=[]
-        for row in metodos:
-            lista.append(row)
-        return lista
+        return metodos
     else:
         pesca=data.obtenerPesca()
-        lista=[]
-        for row in pesca:
-            lista.append(row)
-        return lista
-
+        return pesca
+#CREATE
 @eel.expose
 def enviarPesca(valores):
     data.crearPesca(valores)
 @eel.expose
 def enviarMetodo(metodo):
-    data.crearMetodo(metodo)
+    existe=data.crearMetodo(metodo)
+    return existe
 @eel.expose
 def enviarCuenca(cuenca):
-    data.crearCuenca(cuenca)
+    existe=data.crearCuenca(cuenca)
+    return existe
     
-    
+# DELETE
 @eel.expose
 def eliminarCuenca(cuenca):
-    data.eliminarCuenca(cuenca)
+    existe=data.eliminarCuenca(cuenca)
+    return existe
 @eel.expose
 def eliminarMetodo(metodo):
-    data.eliminarMetodo(metodo)
+    existe=data.eliminarMetodo(metodo)
+    return existe
 @eel.expose
 def eliminarPesca(pesca):
     data.eliminarPesca(pesca)
     
     
-    
+#UPDATE  
 @eel.expose
 def actualizarCuenca(cuenca):
-    data.actualizarCuenca(cuenca)
+    existe=data.actualizarCuenca(cuenca)
+    return existe
 @eel.expose
 def actualizarMetodo(metodo):
-    data.actualizarMetodo(metodo)
-    
+    existe=data.actualizarMetodo(metodo)
+    return existe
+@eel.expose
+def actualizarPesca(pesca):
+    data.actualizarPesca(pesca)
 eel.start("views/index.html", size=(700,500))
 
