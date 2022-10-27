@@ -1,7 +1,7 @@
 import eel
 import sqlite3
 import os
-import module.AccesoDatos as ad
+import www.AccesoDatos as ad
 eel.init("www")
 data=ad.accesoDato()
 #READ
@@ -57,5 +57,5 @@ def actualizarMetodo(metodo):
 @eel.expose
 def actualizarPesca(pesca):
     data.actualizarPesca(pesca)
-eel.start("views/crud/Crear.html", size=(2000,800) , position= (300, 200))
+eel.start("views/crud/reportes.html", size=(2000,800) , position= (300, 200))
 

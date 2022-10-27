@@ -8,8 +8,6 @@ class accesoDato:
         con=sqlite3.Connection(cadena_conexion) #conexion
         cur= con.cursor() #cursor
         return (cur, con)
-    
-    
     #READ
     def obtenerCuenca(self):
         (cur,con)= self.__realizarConexion() #cursor
@@ -39,8 +37,6 @@ class accesoDato:
         for row in res:
             lista.append(row)
         return lista
-    
-    
     #CREATE
     def crearPesca(self,valores):
         (cur,con)= self.__realizarConexion()
@@ -81,10 +77,7 @@ class accesoDato:
             con.commit()    
             return "False"
         else:
-            return "True"
-        
-        
-        
+            return "True"  
     #DELETE
     def eliminarCuenca(self,cuenca):
         (cur,con)= self.__realizarConexion()
@@ -116,9 +109,6 @@ class accesoDato:
         (cur,con)= self.__realizarConexion()
         cur.execute(f"DELETE FROM pesca WHERE consecutivo={pesca}")
         con.commit()
-        
-    
-    
     #UPDATE
     def actualizarCuenca(self, cuenca):
         (cur,con)= self.__realizarConexion()
